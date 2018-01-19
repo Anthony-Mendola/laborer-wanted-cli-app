@@ -1,5 +1,2 @@
-require "laborer_wanted/version"
-
-module LaborerWanted
-  # Your code goes here...
-end
+require_relative "laborer_wanted/version"
+require_relative './laborer_wanted/cli'
