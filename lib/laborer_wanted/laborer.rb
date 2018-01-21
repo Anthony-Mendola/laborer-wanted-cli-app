@@ -10,12 +10,7 @@ class LaborerWanted::Laborer
     laborers = []
 
     laborers << self.scrape_craigslist
-  #  laborers << self.scrape_indeed
-    # Go to craigslist, find the laborers
-    # Extract the properties
-    # Instantiate a laborer listing
-
-    # Go to indeed...
+    laborers << self.scrape_indeed
 
    laborers
   end
@@ -28,6 +23,17 @@ class LaborerWanted::Laborer
     laborer.date = doc.css("time.result-date").first.text
     laborer.location = doc.css("span.result-hood").first.text
     laborer.url = doc.css("a.result-title.hdrlnk").first.attr("href")
+    laborer
+  end
+
+  def self.scrape_indeed
+    doc = Nokogiri::HTML(open("https://www.indeed.com/resumes?q=construction+laborer&l=New+York%2C+NY&cb=jt"))
+
+    laborer = self.new
+    laborer.name = doc.css("a.app_link").first.text
+    laborer.date = doc.css("span.last_updated").first.text
+    laborer.location = doc.css("span.location").first.text
+    laborer.url = doc.css("a.app_link").first.attr("href")
     laborer
   end
 end
