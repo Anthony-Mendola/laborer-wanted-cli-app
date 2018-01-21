@@ -6,8 +6,8 @@ require "laborer_wanted/version"
 Gem::Specification.new do |spec|
   spec.name          = "laborer_wanted"
   spec.version       = LaborerWanted::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["<github email address>"]
+  spec.authors       = ["Anthony Mendola"]
+  spec.email         = ["<anthonymendola@gmail.com>"]
 
   spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
@@ -33,4 +33,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "pry"
+
+  spec.add_dependency "nokogiri"
+
 end

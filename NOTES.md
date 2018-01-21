@@ -18,6 +18,7 @@ What is a laborer listing?
 
 A laborer listing has a subject, a posting date, and contact info.
 
+
 Drill down by trade
 
 Drill down by location

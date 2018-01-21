@@ -8,23 +8,23 @@ class LaborerWanted::CLI
   end
 
   def list_laborers
-    puts <<-DOC.gsub /^\s*/, ''
-    1.  High end carpenter and tile expert - Jan 18 - Contact
-    2.  Handyman/Construction/Worker       - Jan 16 - Contact
-    DOC
+
+    @laborers = LaborerWanted::Laborer.today
+    @laborers.each.with_index(1) do |laborer, i|
+      puts "#{i}, #{laborer.name} - #{laborer.availability} - #{laborer.contact}"
   end
+end
 
 def menu
   input = nil
   while input != "exit"
   puts "Enter the number of the laborer you'd like more info on or type list see the laborers again or type exit:"
   input = gets.strip.downcase
-  case input
-when "1"
-  puts "More info on laborer 1..."
-when "2"
-  puts "More info on laborer 2..."
-when "list"
+
+  if input.to_i > 0
+  the_laborer = @laborers[input.to_i-1]
+  puts "#{the_laborer.name} - #{the_laborer.availability} - #{the_laborer.contact}"
+  elsif input == "list"
   list_laborers
 else
   puts "I did not understand that command, type list or exit"
