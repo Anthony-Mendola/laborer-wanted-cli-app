@@ -23,6 +23,9 @@ class LaborerWanted::Laborer
   def self.scrape_craigslist
     doc = Nokogiri::HTML(open("https://newyork.craigslist.org/search/res?query=construction+laborer"))
     name = doc.css("a.result-title.hdrlnk").first.text
+    availability = doc.css("time.result-date").first.text
+    location = doc.css("span.result-hood").first.text
+    url = doc.css("a.result-title.hdrlnk").first.attr("href")
     binding.pry
   end
 end
