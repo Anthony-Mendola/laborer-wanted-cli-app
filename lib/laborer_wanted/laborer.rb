@@ -8,13 +8,21 @@ class LaborerWanted::Laborer
 
   def self.scrape_laborers
     laborers = []
+
+    laborers << self.scrape_craigslist
+  #  laborers << self.scrape_indeed
     # Go to craigslist, find the laborers
     # Extract the properties
     # Instantiate a laborer listing
 
-    # Go to indeed
+    # Go to indeed...
 
    laborers
   end
 
+  def self.scrape_craigslist
+    doc = Nokogiri::HTML(open("https://newyork.craigslist.org/search/res?query=construction+laborer"))
+    name = doc.css("a.result-title.hdrlnk").first.text
+    binding.pry
+  end
 end
