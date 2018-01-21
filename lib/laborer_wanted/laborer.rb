@@ -2,11 +2,10 @@ class LaborerWanted::Laborer
   attr_accessor :name, :contact, :availability, :url
 
   def self.today
-     #returns instances of laborers
-    #puts <<-DOC.gsub /^\s*/, ''
-    #1.  High end carpenter and tile expert - Available -  (347) 512-3863
-    #2.  Handyman/Construction/Worker       - Available - dj35v-6447093851@res.craigslist.org
-    #DOC
+     #Scrape craigslist and indeed and then return laborers on that data.
+     LaborerWanted::LaborerScraper.new("http://craigslist.com")
+     LaborerWanted::LaborerScraper.new("http://craigslist.com")
+     
     laborer_1 = self.new
     laborer_1.name = "High end carpenter and tile expert"
     laborer_1.availability = "Available"
