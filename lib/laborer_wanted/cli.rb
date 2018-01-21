@@ -11,7 +11,7 @@ class LaborerWanted::CLI
 
     @laborers = LaborerWanted::Laborer.today
     @laborers.each.with_index(1) do |laborer, i|
-      puts "#{i}, #{laborer.name} - #{laborer.availability} - #{laborer.contact}"
+      puts "#{i}, #{laborer.name} - #{laborer.date} - #{laborer.location}"
   end
 end
 
@@ -23,7 +23,7 @@ def menu
 
   if input.to_i > 0
   the_laborer = @laborers[input.to_i-1]
-  puts "#{the_laborer.name} - #{the_laborer.availability} - #{the_laborer.contact}"
+  puts "#{the_laborer.name} - #{the_laborer.date} - #{the_laborer.location}"
   elsif input == "list"
   list_laborers
 else

@@ -1,5 +1,5 @@
 class LaborerWanted::Laborer
-  attr_accessor :name, :contact, :availability, :url
+  attr_accessor :name, :location, :date, :url
 
   def self.today
      #Scrape craigslist and indeed and then return laborers on that data.
@@ -22,10 +22,12 @@ class LaborerWanted::Laborer
 
   def self.scrape_craigslist
     doc = Nokogiri::HTML(open("https://newyork.craigslist.org/search/res?query=construction+laborer"))
-    name = doc.css("a.result-title.hdrlnk").first.text
-    availability = doc.css("time.result-date").first.text
-    location = doc.css("span.result-hood").first.text
-    url = doc.css("a.result-title.hdrlnk").first.attr("href")
-    binding.pry
+
+    laborer = self.new
+    laborer.name = doc.css("a.result-title.hdrlnk").first.text
+    laborer.date = doc.css("time.result-date").first.text
+    laborer.location = doc.css("span.result-hood").first.text
+    laborer.url = doc.css("a.result-title.hdrlnk").first.attr("href")
+    laborer
   end
 end
