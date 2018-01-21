@@ -3,9 +3,10 @@ class LaborerWanted::Laborer
 
   def self.today
      #Scrape craigslist and indeed and then return laborers on that data.
-     LaborerWanted::LaborerScraper.new("http://craigslist.com")
-     LaborerWanted::LaborerScraper.new("http://craigslist.com")
-     
+    self.scrape_laborers
+  end
+
+  def self.scrape_laborers
     laborer_1 = self.new
     laborer_1.name = "High end carpenter and tile expert"
     laborer_1.availability = "Available"
