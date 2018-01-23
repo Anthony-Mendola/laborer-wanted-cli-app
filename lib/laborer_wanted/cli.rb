@@ -22,7 +22,7 @@ class LaborerWanted::CLI
     puts ""
     @laborers = LaborerWanted::Laborer.today
     @laborers.each.with_index(1) do |laborer, i|
-      puts "#{i}, #{laborer.name} - #{laborer.date} - #{laborer.location}"
+      puts "#{i}, #{laborer[:name]} - #{laborer[:date]} - #{laborer[:location]}"
   end
   puts ""
 end
