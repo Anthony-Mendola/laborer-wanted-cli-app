@@ -1,6 +1,4 @@
-#require 'HTTParty'
 require 'open-uri'
-#require 'JSON'
 require 'nokogiri'
 require 'pry'
 

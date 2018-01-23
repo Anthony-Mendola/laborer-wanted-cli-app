@@ -1,11 +1,20 @@
 class LaborerWanted::CLI
 
   def call
-
     list_laborers
     menu
     goodbye
   end
+
+=begin
+  def pull_laborers
+    @laborers = []
+    scraped_data = LaborerWanted::Scraper.new
+    scraped_data.all.each do |laborer|
+      @laborers << LaborerWanted::Laborer.new(laborer)
+    end
+  end
+=end
 
   def list_laborers
     puts ""
