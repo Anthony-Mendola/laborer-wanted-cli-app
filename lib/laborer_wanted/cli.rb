@@ -16,6 +16,10 @@ class LaborerWanted::CLI
   end
 =end
 
+def make_laborers
+  LaborerWanted::Scraper.scrape_craigslist
+end
+
   def list_laborers
     puts ""
     puts "**********Today's Laborers Looking for Work:**********"
@@ -24,7 +28,6 @@ class LaborerWanted::CLI
     @laborers.each.with_index(1) do |laborer, i|
       puts "#{i}, #{laborer[:name]} - #{laborer[:date]} - #{laborer[:location]}"
   end
-  puts ""
 end
 
 def menu
@@ -37,8 +40,7 @@ def menu
   if input.to_i > 0
   the_laborer = @laborers[input.to_i-1]
   puts ""
-  puts "#{the_laborer.name} - #{the_laborer.date} - #{the_laborer.location}"
-  puts ""
+  puts "#{the_laborer[:name]} - #{the_laborer[:date]} - #{the_laborer[:location]} - #{the_laborer[:url]}"
   elsif input == "list"
   list_laborers
 elsif input != "exit"
