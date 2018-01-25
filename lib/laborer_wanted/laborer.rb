@@ -3,8 +3,17 @@ class LaborerWanted::Laborer
 
 @@all = []
 
-def initialize(name=nil, location=nil, date=nil, url=nil)
-@@all << self
+def initialize(laborer_hash)
+laborer_hash.each_key{|k| self.send("#{k}=", laborer_hash[k])}
+end
+
+def self.all
+@@all
+  end
+
+
+def save
+  @@all << self
 end
 
 def self.all

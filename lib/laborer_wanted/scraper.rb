@@ -19,6 +19,6 @@ class LaborerWanted::Scraper
 
     laborers << {name: laborer_name, date: laborer_date, location: laborer_location, url: laborer_url}
     end
-laborers
+laborers.each{|laborer| LaborerWanted::Laborer.new(laborer)}
     end
   end

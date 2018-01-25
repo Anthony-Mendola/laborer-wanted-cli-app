@@ -1,6 +1,7 @@
 class LaborerWanted::CLI
 
   def call
+    make_laborers
     list_laborers
     menu
     goodbye
