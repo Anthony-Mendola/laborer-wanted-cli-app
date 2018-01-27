@@ -1,5 +1,5 @@
 class LaborerWanted::Laborer
-  attr_accessor :name, :location, :date, :url
+  attr_accessor :name, :location, :date, :url, :post
 
 @@all = []
 
@@ -19,4 +19,9 @@ end
 def self.all
   @@all
   end
+
+def sorted_laborers
+  @@all.sort_by{ |laborer| laborer.date}
+end
+
 end

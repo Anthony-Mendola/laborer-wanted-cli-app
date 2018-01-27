@@ -7,16 +7,6 @@ class LaborerWanted::CLI
     goodbye
   end
 
-=begin
-  def pull_laborers
-    @laborers = []
-    scraped_data = LaborerWanted::Scraper.new
-    scraped_data.all.each do |laborer|
-      @laborers << LaborerWanted::Laborer.new(laborer)
-    end
-  end
-=end
-
 def make_laborers
   LaborerWanted::Scraper.scrape_craigslist
 end
@@ -25,34 +15,33 @@ end
     puts ""
     puts "**********Today's Laborers Looking for Work:**********"
     puts ""
-    @laborers = LaborerWanted::Scraper.today
+    @laborers = LaborerWanted::Laborer.all
     @laborers.each.with_index(1) do |laborer, i|
-      puts "#{i}, #{laborer[:name]} - #{laborer[:date]} - #{laborer[:location]}"
+      puts "#{i}, #{laborer.name} - #{laborer.date} - #{laborer.location}"
   end
 end
 
 def menu
   input = nil
   while input != "exit"
-  puts ""
-  puts "Enter the number of the laborer you'd like more info on or type list see the laborers again or type exit:"
-  input = gets.strip.downcase
+      puts ""
+      puts "Enter the number of the laborer you'd like more info on or type list see the laborers again or type exit:"
+      input = gets.strip.downcase
 
-  if input.to_i > 0
-  the_laborer = @laborers[input.to_i-1]
-  puts ""
-  puts "#{the_laborer[:name]} - #{the_laborer[:date]} - #{the_laborer[:location]} - #{the_laborer[:url]}"
-  elsif input == "list"
-  list_laborers
-elsif input != "exit"
-  puts ""
-  puts "I did not understand that command, type list or exit"
-    end
+      if input.to_i > 0
+        the_laborer = @laborers[input.to_i-1]
+        puts ""
+        puts "#{the_laborer.name} - #{the_laborer.date} - #{the_laborer.location} - #{the_laborer.url} - #{the_laborer.post}"
+      elsif input == "list"
+        list_laborers
+      elsif input != "exit"
+        puts ""
+        puts "I did not understand that command, type list or exit"
+      end
   end
 end
 
 def goodbye
   puts "See you tomorrow for more laborers!"
   end
-
 end
