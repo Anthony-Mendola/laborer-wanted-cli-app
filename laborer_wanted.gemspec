@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Anthony Mendola"]
   spec.email         = ["<anthonymendola@gmail.com>"]
 
-  spec.summary       = ''
-  spec.description   = ''
+  spec.summary       = 'Laborer finder'
+  spec.description   = 'Scrapes job wanted data from craigslist for laborers'
   spec.homepage      = "https://github.com/Anthony-Mendola/laborer-wanted-cli-app"
   spec.license       = "MIT"
 

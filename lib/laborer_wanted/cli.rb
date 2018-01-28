@@ -7,9 +7,9 @@ class LaborerWanted::CLI
     goodbye
   end
 
-def make_laborers
-  LaborerWanted::Scraper.scrape_craigslist
-end
+  def make_laborers
+    LaborerWanted::Scraper.scrape_craigslist
+  end
 
   def list_laborers
     puts ""
@@ -17,13 +17,13 @@ end
     puts ""
     @laborers = LaborerWanted::Laborer.all
     @laborers.each.with_index(1) do |laborer, i|
-      puts "#{i}, #{laborer.name} - #{laborer.date} - #{laborer.location}"
+    puts "#{i}, #{laborer.name} - #{laborer.date} - #{laborer.location}"
+    end
   end
-end
 
-def menu
-  input = nil
-  while input != "exit"
+  def menu
+    input = nil
+    while input != "exit"
       puts ""
       puts "Enter the number of the laborer you'd like more info on or type list see the laborers again or type exit:"
       input = gets.strip.downcase
@@ -37,11 +37,11 @@ def menu
       elsif input != "exit"
         puts ""
         puts "I did not understand that command, type list or exit"
+        end
       end
-  end
-end
+    end
 
-def goodbye
-  puts "See you tomorrow for more laborers!"
-  end
-end
+    def goodbye
+      puts "See you tomorrow for more laborers!"
+      end
+    end
