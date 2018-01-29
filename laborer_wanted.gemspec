@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   end
   spec.bindir        = "bin"
   spec.executables   = ['laborer-wanted']
-  spec.require_paths = ["lib"]
+  spec.require_paths = ["lib", "lib/laborer_wanted"]
 
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
