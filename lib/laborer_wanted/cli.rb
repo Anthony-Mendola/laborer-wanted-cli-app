@@ -16,7 +16,7 @@ class LaborerWanted::CLI
 # Welcomes the user and prints the list of laborers.
   def list_laborers
     puts ""
-    puts "**********Today's Laborers Looking for Work:**********"
+    puts "**********Laborers Looking for Work**********"
     puts ""
     @laborers = LaborerWanted::Laborer.all
     @laborers.each.with_index(1) do |laborer, i|

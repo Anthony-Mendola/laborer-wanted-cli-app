@@ -1,9 +1,5 @@
 class LaborerWanted::Scraper
 
-  def self.today
-    self.scrape_craigslist
-  end
-
   def self.scrape_craigslist
     doc = Nokogiri::HTML(open("https://newyork.craigslist.org/search/res?sort=date&nearbyArea=168&nearbyArea=170&nearbyArea=249&nearbyArea=250&nearbyArea=349&nearbyArea=561&query=construction%20laborer&searchNearby=2"))
     laborers = []
