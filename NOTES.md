@@ -1,11 +1,11 @@
 # laborer-wanted-cli-app
 
 - A command line interface for finding skilled laborers that are looking
-for work, starting with craigslist search
+for work in the tri-state area, starting with craigslist search
 
 user types laborer-wanted
 
-Show a list of laborers in NYC that are looking for work 
+Show a list of laborers in NYC that are looking for work, newest first
 
 1.  High end carpenter and tile expert - Jan 18 - location
 2.  Handyman/Construction/Worker       - Jan 16 - location

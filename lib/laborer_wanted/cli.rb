@@ -1,5 +1,6 @@
 class LaborerWanted::CLI
 
+# This method is called initially by the CLI when the gem is first run.
   def call
     make_laborers
     list_laborers
@@ -7,10 +8,12 @@ class LaborerWanted::CLI
     goodbye
   end
 
+# Uses the Scraper class to scrape info from craigslist.
   def make_laborers
     LaborerWanted::Scraper.scrape_craigslist
   end
 
+# Welcomes the user and prints the list of laborers.
   def list_laborers
     puts ""
     puts "**********Today's Laborers Looking for Work:**********"
@@ -21,13 +24,14 @@ class LaborerWanted::CLI
     end
   end
 
+ # Displays the menu repeatedly and perform actions based on input until the user exit's the program.
   def menu
     input = nil
     while input != "exit"
       puts ""
       puts "Enter the number of the laborer you'd like more info on or type list see the laborers again or type exit:"
       input = gets.strip.downcase
-
+      # Handles the action of displaying more detail about a given laborer.
       if input.to_i > 0
         the_laborer = @laborers[input.to_i-1]
         puts ""

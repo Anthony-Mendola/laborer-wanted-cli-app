@@ -18,7 +18,7 @@ class LaborerWanted::Scraper
 
     laborers << {name: laborer_name, date: laborer_date, location: laborer_location, url: laborer_url, post: laborer_post}
     end
-
-    laborers.each{|laborer| LaborerWanted::Laborer.new(laborer).save}
+    #Takes each laborer from array and turns them into a new individual Laborer object.
+    laborers.each{|laborer| LaborerWanted::Laborer.new(laborer)}
     end
   end
