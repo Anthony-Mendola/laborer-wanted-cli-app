@@ -10,6 +10,7 @@ class LaborerWanted::Laborer
     @@all << self
   end
 
+#Reads the @@all array
   def self.all
     @@all
   end

@@ -1,9 +1,9 @@
 # laborer-wanted-cli-app
 
-- A command line interface for finding skilled laborers that are looking
-for work in the tri-state area, starting with craigslist search
+- A command line interface for finding laborers that are looking
+for work in the tri-state area, starting with a craigslist search
 
-user types laborer-wanted
+user types bin/laborer-wanted
 
 Show a list of laborers in NYC that are looking for work, newest first
 
@@ -18,4 +18,4 @@ What is a laborer listing?
 A laborer listing has a subject, a posting date, and location.
 
 
-Drill down to more information
+Drill down to more information -> body of posting
