@@ -3,7 +3,7 @@
 - A command line interface for finding laborers that are looking
 for work in the tri-state area, starting with a craigslist search
 
-user types bin/laborer-wanted
+user types laborer-wanted
 
 Show a list of laborers in NYC that are looking for work, newest first
 
