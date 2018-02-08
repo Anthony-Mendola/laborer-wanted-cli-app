@@ -19,8 +19,10 @@ class LaborerWanted::CLI
     puts "**********Laborers Looking for Work**********"
     puts ""
     @laborers = LaborerWanted::Laborer.all
-    @laborers.each.with_index(1) do |laborer, i|
-    puts "#{i}, #{laborer.name} - #{laborer.date} - #{laborer.location}"
+    @laborers.first(10).each.with_index(1) do |laborer, i|
+    #  if i <= 10
+        puts "#{i}, #{laborer.name} - #{laborer.date} - #{laborer.location}"
+    #  end
     end
   end
 
